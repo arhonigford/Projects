@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CS180 Projects.iml" filepath="$PROJECT_DIR$/CS180 Projects.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab08/Lab08.iml" filepath="$PROJECT_DIR$/Lab08/Lab08.iml" />
       <module fileurl="file://$PROJECT_DIR$/Project1/Project1.iml" filepath="$PROJECT_DIR$/Project1/Project1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Project2/Project2.iml" filepath="$PROJECT_DIR$/Project2/Project2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Project3/Project3.iml" filepath="$PROJECT_DIR$/Project3/Project3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Project4/Project4.iml" filepath="$PROJECT_DIR$/Project4/Project4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Projects.iml" filepath="$PROJECT_DIR$/Projects.iml" />
     </modules>
   </component>
 </project>

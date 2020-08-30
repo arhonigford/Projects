@@ -1,7 +1,13 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author alissahonigford arhonigford
+ * @version 11/9/2019
+ */
 public class ImageFile extends CommonFile {
     private int imageHeight;
     private int imageWidth;
@@ -9,16 +15,19 @@ public class ImageFile extends CommonFile {
 
     public ImageFile(File image) throws IOException, InvalidImageFileException {
         super(true, false, "Preview");
-        if (imageHeight <= 0 && imageWidth <= 0) {
+        int height = ImageIO.read(image).getHeight();
+        int width = ImageIO.read(image).getWidth();
+        if (height <= 0 && width <= 0) {
             throw new InvalidImageFileException();
-        }
-        else if (super.getExtension().equals(".gif")) {
-            isAnimated = true;
-        }
-        else {
-            isAnimated = false;
+        } else {
             super.setFile(image);
-            //TODO: set imageHeight and imageWidth
+            if (super.getExtension().equals(".gif"))
+                isAnimated = true;
+            else
+                isAnimated = false;
+            imageHeight = height;
+            imageWidth = width;
+            super.setFileSizeInBytes(image.length());
         }
     }
 
@@ -50,13 +59,13 @@ public class ImageFile extends CommonFile {
     public boolean equals(Object o) {
         if (o instanceof ImageFile) {
             if (super.equals(o)) {
-              if (((ImageFile) o).animated() == isAnimated) {
-                  if (((ImageFile) o).getImageHeight() == imageHeight) {
-                      return (((ImageFile) o).getImageWidth() == imageWidth);
-                  }
-              }
+                if (((ImageFile) o).animated() == isAnimated) {
+                    if (((ImageFile) o).getImageHeight() == imageHeight) {
+                        return (((ImageFile) o).getImageWidth() == imageWidth);
+                    }
+                }
             }
         }
-    return false;
+        return false;
     }
 }

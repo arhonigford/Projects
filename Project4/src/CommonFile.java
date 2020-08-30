@@ -1,5 +1,9 @@
 import java.io.File;
 
+/**
+ * @author alissahonigford arhonigford
+ * @version 11/9/2019
+ */
 public abstract class CommonFile {
     private boolean canOpen;
     private boolean canPlay;
@@ -7,7 +11,7 @@ public abstract class CommonFile {
     private long fileSizeInBytes;
     private String programToOpenIn;
 
-    public CommonFile(){
+    public CommonFile() {
         canOpen = false;
         canPlay = false;
         programToOpenIn = null;
@@ -47,12 +51,13 @@ public abstract class CommonFile {
         this.fileSizeInBytes = fileSizeInBytes;
     }
 
-    public String getExtension () {
+    public String getExtension() {
         if (file != null) {
             String extension = file.getName().substring(file.getName().indexOf('.'));
             return extension;
         }
         return null;
+
     }
 
     public File getFile() {

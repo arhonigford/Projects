@@ -1,15 +1,19 @@
 import java.io.File;
 
+/**
+ * @author alissahonigford arhonigford
+ * @version 11/9/2019
+ */
 public class UnknownFile extends CommonFile {
 
-    public UnknownFile(File unknownFile) throws InvalidFileException{
+    public UnknownFile(File unknownFile) throws InvalidFileException {
         super(false, false, "Unknown Program");
-        if(!unknownFile.getName().contains(".")) {
+        if (unknownFile.getName().indexOf('.') < 0 ||
+                unknownFile.getName().indexOf('.') > unknownFile.getName().length()) {
             throw new InvalidFileException();
-        }
-        else {
+        } else {
             super.setFile(unknownFile);
-
+            super.setFileSizeInBytes(unknownFile.length());
         }
     }
 

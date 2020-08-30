@@ -1,28 +1,32 @@
 import java.io.File;
 
-public class AudioFile extends CommonFile{
+/**
+ * @author alissahonigford arhonigford
+ * @version 11/9/2019
+ */
+public class AudioFile extends CommonFile {
     private int songLength;
 
     public AudioFile(File audio, int songLengthInSeconds) throws InvalidAudioFileException {
-            super(true, true, "iTunes");
-            if (songLengthInSeconds <= 0 ) {
-                throw new InvalidAudioFileException();
-            }
-            else {
-                songLength = songLengthInSeconds;
-                super.setFile(audio);
-            }
+        super(true, true, "iTunes");
+        if (songLengthInSeconds <= 0) {
+            throw new InvalidAudioFileException();
+        } else {
+            songLength = songLengthInSeconds;
+            super.setFile(audio);
+            super.setFileSizeInBytes(audio.length());
+        }
     }
 
     @Override
     public String getFileType() {
-        return "audio";
+        return "Audio";
     }
 
     public String getSongLength() {
-        int minutes = songLength/60;
-        int seconds = songLength%60;
-        String sLength = minutes + " minutes " + seconds + " seconds";
+        int minutes = songLength / 60;
+        int seconds = songLength % 60;
+        String sLength = minutes + " minutes and " + seconds + " seconds";
         return sLength;
     }
 

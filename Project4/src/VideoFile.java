@@ -1,16 +1,20 @@
 import java.io.File;
 
+/**
+ * @author alissahonigford arhonigford
+ * @version 11/9/2019
+ */
 public class VideoFile extends CommonFile {
     private long videoLengthInSeconds;
 
-    public VideoFile (File video, long videoLength) throws InvalidVideoFileException{
+    public VideoFile(File video, long videoLength) throws InvalidVideoFileException {
         super(true, true, "Quicktime Player");
-        if (videoLength <= 0 ) {
+        if (videoLength <= 0) {
             throw new InvalidVideoFileException();
-        }
-        else {
+        } else {
             videoLengthInSeconds = videoLength;
             super.setFile(video);
+            super.setFileSizeInBytes(video.length());
         }
     }
 
@@ -21,9 +25,9 @@ public class VideoFile extends CommonFile {
     }
 
     public String getVideoLength() {
-        long minutes = videoLengthInSeconds/60;
-        long seconds = videoLengthInSeconds%60;
-        String sLength = minutes + " minutes " + seconds + " seconds";
+        long minutes = videoLengthInSeconds / 60;
+        long seconds = videoLengthInSeconds % 60;
+        String sLength = minutes + " minutes and " + seconds + " seconds";
         return sLength;
     }
 
